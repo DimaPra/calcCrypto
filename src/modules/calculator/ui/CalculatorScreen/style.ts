@@ -25,7 +25,7 @@ export const styles = StyleSheet.create({
         height:100,
         justifyContent:'space-between',
         flexDirection:'row',
-        paddingHorizontal:20,
+        paddingHorizontal:5,
         alignItems:'center'
         
       }, 
@@ -43,7 +43,7 @@ export const styles = StyleSheet.create({
       image:{
         width:35,
         height:35,
-        marginLeft:20,
+        marginLeft:10,
     },
     textSymbol:{
       color:'#fff',

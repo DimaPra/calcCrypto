@@ -12,6 +12,8 @@ export const useCalculator = () => {
   const [operand, setOperand] = useState('');
   const [dollar, setDollar] = useState(0);
   const coin: ICypto = useSelector(selectCoin)
+ const remainder = parseFloat((dollar).toFixed(2));
+
 
   useEffect(() => {
     setTimeout(() => {
@@ -29,6 +31,7 @@ export const useCalculator = () => {
     setOperand(value);
   };
 
+  
   const onCalculate = () => {
     switch (operand) {
       case '+':
@@ -59,23 +62,26 @@ export const useCalculator = () => {
       setOutput('0');
       setOperand('')
     } else if (value === '⌦') {
-      if (output.length === 1) {
+      if (output.length === 1 ) {
         setOutput('0');
       } else {
         setOutput(prev => prev.substring(0, prev.length - 1));
-      }
+      } 
 
 
     } else if (value === '.' && output.includes('.') ||
-      output === '0' && output.length === 1 && value === '0') {
+      output === '0' && output.length === 1 && value === '0' ) {
       return
-    } else if (output === '0' && output.length === 1 && value !== '.') {
+    } else if (output === '0' && output.length === 1 && value !== '.' ) {
       setOutput(value);
-    } else {
-      setOutput(prev => prev + value);
+    } else if ( output.length == 15){
+      setOutput(value);
     }
+    else {
+      setOutput(prev => prev + value);
+    } 
 
 
   }
-  return { isLoading, onPressOperand, onSetOutput, onCalculate, output, coin, dollar }
+  return { isLoading, onPressOperand, onSetOutput, onCalculate, output, coin, remainder }
 }

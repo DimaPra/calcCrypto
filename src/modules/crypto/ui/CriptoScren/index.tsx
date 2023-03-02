@@ -11,7 +11,8 @@ export const CriptoScren:FC = () =>{
         <View style={styles.container}>
             <FlatList
             data={crypto} 
-            renderItem={({item})=> <CtryptoItem crypto={item} onPressCoin={onPressCoin}/>}/>
+            renderItem={({item})=> <CtryptoItem crypto={item} onPressCoin={onPressCoin}/>}
+            showsVerticalScrollIndicator={false}/>
         </View>
     )
 }

@@ -9,7 +9,7 @@ import { LoadingScrean } from "../components/loadingScrean";
 import { styles } from './style'
 
 export const CalculatorScreen: FC = () => {
-    const { isLoading, output, onPressOperand, onSetOutput, onCalculate, coin, dollar } = useCalculator()
+    const { isLoading, output, onPressOperand, onSetOutput, onCalculate, coin, remainder } = useCalculator()
     const navigation = useNavigation<NavigationProp<any>>()
 
     return (
@@ -29,7 +29,7 @@ export const CalculatorScreen: FC = () => {
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.btncrypn} >
                             <Text style={styles.text}>USD</Text>
-                            <Text style={styles.text}>$ {dollar || '0'}</Text>
+                            <Text style={styles.text}>$ {remainder || 0 || '0'}</Text>
                         </TouchableOpacity>
                         <CalculatorView onCalculate={onCalculate} onPressOperand={onPressOperand} onSetOutput={onSetOutput} />
                     </View>
